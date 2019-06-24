@@ -21,11 +21,9 @@ export default class Generator {
 	}
 
 	build(structure) {
-		let element = this.createElement(structure);
+		const element = this.createElement(structure);
 		if (structure.children) {
-			structure.children.forEach(childStructure => {
-				element.appendChild(this.build(childStructure));
-			});
+			structure.children.forEach(child => element.appendChild(this.build(child)));
 		}
 		return element;
 	}
