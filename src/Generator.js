@@ -1,29 +1,29 @@
+import Element from './Element';
+
 export default class Generator {
 
 	constructor(structure) {
-		this.structure = structure;
-		this.dom = this.build(structure);
+		this.dom = this._build(structure);
 	}
 
 	create() {
-		this.dom = this.build(this.structure);
 		return this.dom;
 	}
 
-	createElement({ tag = 'div', html = '', classes = [], events = [] }) {
-		let element = document.createElement(tag);
-		element.innerHTML = html || '';
-		element.className = classes.join(' ');
-		events.forEach(event => {
-			element.addEventListener(event.name, e => event.callback(e, element));
-		});
-		return element;
+	/**
+	 * @private
+	 */
+	_createElement(attributes) {
+		return new Element(attributes);
 	}
 
-	build(structure) {
-		const element = this.createElement(structure);
+	/**
+	 * @private
+	 */
+	_build(structure) {
+		const element = this._createElement(structure);
 		if (structure.children) {
-			structure.children.forEach(child => element.appendChild(this.build(child)));
+			structure.children.forEach(child => element.appendChild(this._build(child)));
 		}
 		return element;
 	}

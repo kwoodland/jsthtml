@@ -1,4 +1,3 @@
-// const Generator = require('./Generator');
 import Generator from './Generator';
 
 const buttonCallback = (event, element) => {
@@ -7,22 +6,22 @@ const buttonCallback = (event, element) => {
 
 const structure = {
 	element: 'div',
-	classes: ['bg-info'],
+	classes: ['bg-info', 'pl-2'],
 	html: 'bg-info',
 	children: [
 		{
 			element: 'div',
-			classes: ['bg-secondary', 'ml-5'],
+			classes: ['bg-secondary', 'ml-5', 'pl-2'],
 			html: 'bg-secondary'
 		},
 		{
 			element: 'div',
-			classes: ['bg-warning', 'ml-5'],
+			classes: ['bg-warning', 'ml-5', 'pl-2'],
 			html: 'bg-warning',
 			children: [
 				{
 					element: 'div',
-					classes: ['bg-danger', 'ml-5'],
+					classes: ['bg-danger', 'ml-5', 'pl-2'],
 					html: 'bg-danger',
 					children: [
 						{
